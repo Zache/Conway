@@ -1,6 +1,6 @@
 ﻿namespace Conway.Game
 {
-    public enum Color
+    public enum RogbivColor
     {
         None,
         Red,

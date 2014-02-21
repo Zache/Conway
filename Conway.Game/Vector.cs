@@ -2,22 +2,24 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
 
+    [DebuggerDisplay("Vector X: {x} Y: {y}")]
     public struct Vector : ICell<Vector>, IEquatable<Vector>
     {
-        private readonly int x;
-        private readonly int y;
+        public readonly int X;
+        public readonly int Y;
 
         public Vector(int x, int y)
             : this()
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
 
         public bool Equals(Vector other)
         {
-            return this.x == other.x && this.y == other.y;
+            return this.X == other.X && this.Y == other.Y;
         }
 
         public static bool operator ==(Vector vector1, Vector vector2)
@@ -41,17 +43,22 @@
             unchecked
             {
                 int hash = 17;
-                hash = hash * 23 + x.GetHashCode();
-                hash = hash * 23 + y.GetHashCode();
+                hash = hash * 23 + X.GetHashCode();
+                hash = hash * 23 + Y.GetHashCode();
                 return hash;
             }
         }
 
+        public override string ToString()
+        {
+            return string.Format("X: {0} Y: {1}", X, Y);
+        }
+
         public IEnumerable<Vector> Neighbours()
         {
-            for (var x = this.x - 1; x <= this.x + 1; x++)
-                for (var y = this.y - 1; y <= this.y + 1; y++)
-                    if (x != this.x && y != this.y)
+            for (var x = this.X - 1; x <= this.X + 1; x++)
+                for (var y = this.Y - 1; y <= this.Y + 1; y++)
+                    if (x != this.X || y != this.Y)
                         yield return new Vector(x, y);
         }
     }
