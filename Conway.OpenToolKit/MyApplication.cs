@@ -1,7 +1,6 @@
 ﻿namespace Conway.OpenToolKit
 {
     using System;
-    using System.Collections.ObjectModel;
     using Game;
     using OpenTK;
     using OpenTK.Graphics.OpenGL;
@@ -27,7 +26,6 @@
             using (var game = new GameWindow())
             {
                 var conway = new Game<Vector>();
-                var generation = 0;
                 var gameOfLife = conway.Run(diehard, true).GetEnumerator();
 
                 game.Load += (sender, e) =>
@@ -50,8 +48,6 @@
                     }
 
                     gameOfLife.MoveNext();
-                    generation++;
-                    Console.WriteLine("Generation: {0}", generation);
                 };
 
                 game.RenderFrame += (sender, e) =>
@@ -61,14 +57,14 @@
 
                     GL.MatrixMode(MatrixMode.Projection);
                     GL.LoadIdentity();
-                    GL.Ortho(-30.0, 30.0, -30.0, 30.0, 0.0, 10.0);
+                    GL.Ortho(-30.0, 30.0, -30.0, 30.0, 0.0, 30.0);
                     GL.PointSize(5.0f);
 
                     GL.Begin(PrimitiveType.Points);
 
                     foreach (var cell in gameOfLife.Current)
                     {
-                        GL.Color3(Color.SteelBlue);
+                        GL.Color3(Color.PaleGoldenrod);
                         GL.Vertex2(cell.X, cell.Y);
                     }
 
