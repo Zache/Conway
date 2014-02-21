@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conway.Game", "Conway.Game\Conway.Game.csproj", "{AF5FE597-5440-428B-B651-F4D233A08CFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conway.Test", "Conway.Test\Conway.Test.csproj", "{193CF232-0E4A-4FAC-AFD6-ABA40600450E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conway.OpenToolKit", "Conway.OpenToolKit\Conway.OpenToolKit.csproj", "{D3CBC8B8-54EA-4FDA-8804-CC7EB85E8385}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{AF5FE597-5440-428B-B651-F4D233A08CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF5FE597-5440-428B-B651-F4D233A08CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF5FE597-5440-428B-B651-F4D233A08CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193CF232-0E4A-4FAC-AFD6-ABA40600450E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193CF232-0E4A-4FAC-AFD6-ABA40600450E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193CF232-0E4A-4FAC-AFD6-ABA40600450E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193CF232-0E4A-4FAC-AFD6-ABA40600450E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3CBC8B8-54EA-4FDA-8804-CC7EB85E8385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3CBC8B8-54EA-4FDA-8804-CC7EB85E8385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3CBC8B8-54EA-4FDA-8804-CC7EB85E8385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3CBC8B8-54EA-4FDA-8804-CC7EB85E8385}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
