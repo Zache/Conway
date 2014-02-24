@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RogbivColor.cs" />
+    <Compile Include="RoygbivColor.cs" />
     <Compile Include="ColorVector.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ICell.cs" />

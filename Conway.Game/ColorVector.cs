@@ -9,12 +9,12 @@
     {
         public readonly int X;
         public readonly int Y;
-        public readonly RogbivColor Color;
+        public readonly RoygbivColor Color;
 
-        public ColorVector(RogbivColor rogbivColor, int x, int y)
+        public ColorVector(RoygbivColor roygbivColor, int x, int y)
             : this()
         {
-            this.Color = rogbivColor;
+            this.Color = roygbivColor;
 
             this.X = x;
             this.Y = y;
@@ -59,51 +59,51 @@
                     if (x != this.X && y != this.Y)
                         switch (Color)
                         {
-                            case RogbivColor.Red:
+                            case RoygbivColor.Red:
                                 {
-                                    yield return new ColorVector(RogbivColor.Orange, x, y);
-                                    yield return new ColorVector(RogbivColor.Red, x, y);
+                                    yield return new ColorVector(RoygbivColor.Orange, x, y);
+                                    yield return new ColorVector(RoygbivColor.Red, x, y);
                                     break;
                                 }
-                            case RogbivColor.Orange:
+                            case RoygbivColor.Orange:
                                 {
-                                    yield return new ColorVector(RogbivColor.Red, x, y);
-                                    yield return new ColorVector(RogbivColor.Orange, x, y);
-                                    yield return new ColorVector(RogbivColor.Yellow, x, y);
+                                    yield return new ColorVector(RoygbivColor.Red, x, y);
+                                    yield return new ColorVector(RoygbivColor.Orange, x, y);
+                                    yield return new ColorVector(RoygbivColor.Yellow, x, y);
                                     break;
                                 }
-                            case RogbivColor.Yellow:
+                            case RoygbivColor.Yellow:
                                 {
-                                    yield return new ColorVector(RogbivColor.Orange, x, y);
-                                    yield return new ColorVector(RogbivColor.Yellow, x, y);
-                                    yield return new ColorVector(RogbivColor.Green, x, y);
+                                    yield return new ColorVector(RoygbivColor.Orange, x, y);
+                                    yield return new ColorVector(RoygbivColor.Yellow, x, y);
+                                    yield return new ColorVector(RoygbivColor.Green, x, y);
                                     break;
                                 }
-                            case RogbivColor.Green:
+                            case RoygbivColor.Green:
                                 {
-                                    yield return new ColorVector(RogbivColor.Yellow, x, y);
-                                    yield return new ColorVector(RogbivColor.Green, x, y);
-                                    yield return new ColorVector(RogbivColor.Blue, x, y);
+                                    yield return new ColorVector(RoygbivColor.Yellow, x, y);
+                                    yield return new ColorVector(RoygbivColor.Green, x, y);
+                                    yield return new ColorVector(RoygbivColor.Blue, x, y);
                                     break;
                                 }
-                            case RogbivColor.Blue:
+                            case RoygbivColor.Blue:
                                 {
-                                    yield return new ColorVector(RogbivColor.Green, x, y);
-                                    yield return new ColorVector(RogbivColor.Blue, x, y);
-                                    yield return new ColorVector(RogbivColor.Indigo, x, y);
+                                    yield return new ColorVector(RoygbivColor.Green, x, y);
+                                    yield return new ColorVector(RoygbivColor.Blue, x, y);
+                                    yield return new ColorVector(RoygbivColor.Indigo, x, y);
                                     break;
                                 }
-                            case RogbivColor.Indigo:
+                            case RoygbivColor.Indigo:
                                 {
-                                    yield return new ColorVector(RogbivColor.Blue, x, y);
-                                    yield return new ColorVector(RogbivColor.Indigo, x, y);
-                                    yield return new ColorVector(RogbivColor.Violett, x, y);
+                                    yield return new ColorVector(RoygbivColor.Blue, x, y);
+                                    yield return new ColorVector(RoygbivColor.Indigo, x, y);
+                                    yield return new ColorVector(RoygbivColor.Violett, x, y);
                                     break;
                                 }
-                            case RogbivColor.Violett:
+                            case RoygbivColor.Violett:
                                 {
-                                    yield return new ColorVector(RogbivColor.Indigo, x, y);
-                                    yield return new ColorVector(RogbivColor.Violett, x, y);
+                                    yield return new ColorVector(RoygbivColor.Indigo, x, y);
+                                    yield return new ColorVector(RoygbivColor.Violett, x, y);
                                     break;
                                 }
                         }
