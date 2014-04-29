@@ -4,7 +4,6 @@
     using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Linq;
 
     public class Game<TCell> where TCell : struct, ICell<TCell>, IEquatable<TCell>
@@ -31,8 +30,9 @@
 
         private class PatternQueue : IEnumerator<ICollection<TCell>>, IEnumerable<ICollection<TCell>>
         {
-            private readonly ICollection<TCell> initialPattern;
             private readonly bool loop;
+
+            private readonly ICollection<TCell> initialPattern;
             private readonly Queue<ICollection<TCell>> innerQueue = new Queue<ICollection<TCell>>();
 
             public PatternQueue(ICollection<TCell> initialPattern, bool loop = false)
@@ -51,21 +51,30 @@
 
             private IEnumerable<TCell> AliveNeighbours(TCell cell, ICollection<TCell> pattern)
             {
-                return cell.Neighbours().AsParallel().Where(pattern.Contains);
+                return from c in cell.Neighbours() 
+                       where pattern.Contains(c) 
+                       select c;
             }
 
             private IEnumerable<TCell> DeadNeighbours(TCell cell, ICollection<TCell> pattern)
             {
-                return cell.Neighbours().AsParallel().Where(n => !pattern.Contains(n));
+                return from c in cell.Neighbours() 
+                       where !pattern.Contains(c) 
+                       select c;
             }
 
             private IEnumerable<TCell> Born(ICollection<TCell> pattern)
             {
                 var cd = new ConcurrentDictionary<TCell, int>();
 
-                pattern.AsParallel().SelectMany(c => DeadNeighbours(c, pattern)).ForAll(c => cd.AddOrUpdate(c, _ => 1, (_, n) => n + 1));
+                pattern
+                    .AsParallel()
+                    .SelectMany(c => DeadNeighbours(c, pattern))
+                    .ForAll(c => cd.AddOrUpdate(c, _ => 1, (_, n) => n + 1));
 
-                return cd.Where(kvp => kvp.Value == 3).Select(kvp => kvp.Key);
+                return from kvp in cd
+                       where kvp.Value == 3
+                       select kvp.Key;
             }
 
             private IEnumerable<TCell> Survives(ICollection<TCell> pattern)
@@ -86,7 +95,7 @@
                 if (nextGeneration.Any())
                     innerQueue.Enqueue(nextGeneration);
                 else
-                    innerQueue.Enqueue(loop ? initialPattern : new Collection<TCell>());
+                    innerQueue.Enqueue(loop ? initialPattern : new HashSet<TCell>());
 
                 return true;
             }
